@@ -1,8 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { GET } from './axios/request';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  async getPhotos(): Promise<Photo[]> {
+    const response = await GET('https://jsonplaceholder.typicode.com/photos');
+
+    return response;
   }
 }
