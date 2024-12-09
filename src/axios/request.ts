@@ -11,9 +11,9 @@ const axiosInstance: AxiosInstance = axios.create({
   },
 });
 
-export const GET = async (url: string) => {
+export const GET = async (url: string, params: Record<string, any> = {}) => {
   try {
-    const response = await axiosInstance.get(url);
+    const response = await axiosInstance.get(url, { params });
     return response.data;
   } catch (error) {
     console.error(error);
